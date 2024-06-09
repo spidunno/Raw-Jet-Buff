@@ -19,7 +19,7 @@ jobs:
         run: 'if [ -d "data_static" ]; then cp data_static dist; else mkdir dist/data_static; fi'
         
       - name: Install steamcmd
-        run: sudo apt install lib32gcc-s1 && mkdir ~/steamcmd && cd ~/steamcmd && wget https://media.steampowered.com/installer/steamcmd_linux.tar.gz && tar -xvzf steamcmd_linux.tar.gz && ./steamcmd.sh
+        run: sudo apt install lib32gcc-s1 && mkdir ~/steamcmd && cd ~/steamcmd && wget https://media.steampowered.com/installer/steamcmd_linux.tar.gz && tar -xvzf steamcmd_linux.tar.gz && ./steamcmd.sh +quit
       # - uses: m00nl1ght-dev/steam-workshop-deploy@v2
       
       - name: steamcmd thing

@@ -29,37 +29,37 @@ EOF
 cat manifest.vdf
 echo ""
 
-if [ ! -n "$configVdf" ]; then
-  echo ""
-  echo "#################################"
-  echo "#     Using SteamGuard TOTP     #"
-  echo "#################################"
-  echo ""
+# if [ ! -n "$configVdf" ]; then
+#   echo ""
+#   echo "#################################"
+#   echo "#     Using SteamGuard TOTP     #"
+#   echo "#################################"
+#   echo ""
 
-  ~/steamcmd/steamcmd.sh +set_steam_guard_code "$steam_totp" +login "$steam_username" "$steam_password" +quit;
+#   ~/steamcmd/steamcmd.sh +set_steam_guard_code "$steam_totp" +login "$steam_username" "$steam_password" +quit;
 
-  ret=$?
-  if [ $ret -eq 0 ]; then
-      echo ""
-      echo "#################################"
-      echo "#        Successful login       #"
-      echo "#################################"
-      echo ""
-  else
-        echo ""
-        echo "#################################"
-        echo "#        FAILED login #"
-        echo "#################################"
-        echo ""
-        echo "Exit code: $ret"
+#   ret=$?
+#   if [ $ret -eq 0 ]; then
+#       echo ""
+#       echo "#################################"
+#       echo "#        Successful login       #"
+#       echo "#################################"
+#       echo ""
+#   else
+#         echo ""
+#         echo "#################################"
+#         echo "#        FAILED login #"
+#         echo "#################################"
+#         echo ""
+#         echo "Exit code: $ret"
 
-        exit $ret
-  fi
-else
-  if [ ! -n "$configVdf" ]; then
-    echo "Config VDF input is missing or incomplete! Cannot proceed."
-    exit 1
-  fi
+#         exit $ret
+#   fi
+# else
+#   if [ ! -n "$configVdf" ]; then
+#     echo "Config VDF input is missing or incomplete! Cannot proceed."
+#     exit 1
+#   fi
 
   steam_totp="INVALID"
 
@@ -105,7 +105,7 @@ else
 
         exit $ret
   fi
-fi
+# fi
 
 echo ""
 echo "#################################"

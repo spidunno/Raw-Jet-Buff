@@ -27,13 +27,14 @@ globalThis.update = () => {
 
 const elements: Element[] = [
 	new Label('RAW Jet strength (default 1500): '),
-	new Input('1500', (data) => {
+	new Input(strength.toString(), (data) => {
 		const value = parseFloat(data.value);
 
 		// from my experience Number.isNaN isn't functional
 		if (value !== value) return;
 
 		strength = value;
+		(elements[1] as Input).content = strength.toString()
 	}),
 	new Label('--------------------------------------------------'),
 	new Label(` [Press ${TOGGLE_KEY.toUpperCase()} to toggle visibility]`),

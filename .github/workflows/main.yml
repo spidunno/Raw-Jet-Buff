@@ -182,6 +182,8 @@ jobs:
           appId: 585420
           itemId: 3264225034
           rootPath: dist
-          
+          steam_password: ''
+          steam_totp: ''
+          changeNote: ''
     
       

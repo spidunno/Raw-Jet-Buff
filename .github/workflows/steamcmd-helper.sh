@@ -149,4 +149,4 @@ echo ""
     exit 1
   )
 
-echo "manifest=${manifest_path}" >> $GITHUB_OUTPUT"
+echo "manifest=${manifest_path}" >> "$GITHUB_OUTPUT"

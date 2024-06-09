@@ -23,12 +23,12 @@ jobs:
       # - uses: m00nl1ght-dev/steam-workshop-deploy@v2
       
       - name: steamcmd thing
-        run: .github/workflows/steamcmd-helper.sh
+        run: bash .github/workflows/steamcmd-helper.sh
           
         env:
           steam_username: spidunno
-          steam_password: ''
-          steam_totp: ''
+          # steam_password: ''
+          # steam_totp: ''
           configVdf: ${{ secrets.STEAM_CONFIG_VDF }}
           appId: 585420
           itemId: 3264225034

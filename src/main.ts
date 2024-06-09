@@ -1,4 +1,9 @@
-import { RAW_JET, DEFAULT_STRENGTH } from "./util";
+import { Element, Input, Label, Layout } from "tm-ui-lib";
+import { RAW_JET, DEFAULT_STRENGTH, TOGGLE_KEY } from "./util";
+
+let strength = DEFAULT_STRENGTH;
+
+let visible = true;
 
 globalThis.update = () => {
 	const players = tm.players.CurrentPlayers();
@@ -13,9 +18,37 @@ globalThis.update = () => {
 				const blockName = block.GetName();
 
 				if (blockName === RAW_JET) {
-					block.SetJetPower(DEFAULT_STRENGTH);
+					block.SetJetPower(strength);
 				}
 			}
 		}
 	}
 }
+
+const elements: Element[] = [
+	new Label('RAW Jet strength: '),
+	new Input('1500', (data) => {
+		const value = parseFloat(data.value);
+
+		// from my experience Number.isNaN isn't functional
+		if (value !== value) return;
+
+		strength = value;
+	}),
+	new Label('--------------------------------------------------'),
+	new Label(` [Press ${TOGGLE_KEY.toUpperCase()} to toggle visibility]`),
+];
+
+const layout = new Layout(elements, [0]);
+
+// ugh gotta make this better somehow, but it would be complicated.
+//@ts-expect-error
+globalThis.VisibilityToggleFunction = (playerId: PlayerID) => {
+	visible = !visible;
+	if (visible) {
+		layout.items = elements;
+	} else {
+		layout.items = [];
+	}
+}
+tm.input.RegisterFunctionToKeyDownCallback(0, 'VisibilityToggleFunction', TOGGLE_KEY);

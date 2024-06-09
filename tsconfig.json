@@ -6,6 +6,8 @@
     "moduleResolution": "Node",
     "types": ["trailmakers"],
     "strict": true,
+		"outDir": "../raw-jet-buff-workshop/",
+		"rootDir": "./src",
   },
   "tstl": {
 		"buildMode": "default",

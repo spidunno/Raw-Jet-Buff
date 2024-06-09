@@ -61,7 +61,7 @@ jobs:
             echo "#################################"
             echo ""
 
-            steamcmd +set_steam_guard_code "$steam_totp" +login "$steam_username" "$steam_password" +quit;
+            ~/steamcmd/steamcmd.sh +set_steam_guard_code "$steam_totp" +login "$steam_username" "$steam_password" +quit;
 
             ret=$?
             if [ $ret -eq 0 ]; then
@@ -111,7 +111,7 @@ jobs:
             echo "#################################"
             echo ""
 
-            steamcmd +login "$steam_username" +quit;
+            ~/steamcmd/steamcmd.sh +login "$steam_username" +quit;
 
             ret=$?
             if [ $ret -eq 0 ]; then
@@ -138,7 +138,7 @@ jobs:
           echo "#################################"
           echo ""
 
-          steamcmd +login "$steam_username" +workshop_build_item "$manifest_path" +quit || (
+          ~/steamcmd/steamcmd.sh +login "$steam_username" +workshop_build_item "$manifest_path" +quit || (
               echo ""
               echo "#################################"
               echo "#             Errors            #"

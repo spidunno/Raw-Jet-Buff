@@ -18,11 +18,8 @@ jobs:
       - name: Copy over assets
         run: 'if [ -d "data_static" ]; then cp data_static dist; else mkdir dist/data_static; fi'
         
-      - name: Add steamcmd repositories
-        run: sudo apt update -y && sudo apt upgrade -y && sudo apt install software-properties-common && sudo apt-add-repository multiverse && sudo apt update && sudo apt install steamcmd
-
       - name: Install steamcmd
-        run: sudo apt install steamcmd -y
+        run: sudo apt install lib32gcc && mkdir ~/steamcmd && cd ~/steamcmd && wget https://media.steampowered.com/installer/steamcmd_linux.tar.gz && tar -xvzf steamcmd_linux.tar.gz  
       # - uses: m00nl1ght-dev/steam-workshop-deploy@v2
       
       - name: steamcmd thing
@@ -31,7 +28,8 @@ jobs:
           set -euo pipefail
           IFS=$'\n\t'
 
-          steamdir=${STEAM_HOME:-$HOME/Steam}
+          # steamdir=${STEAM_HOME:-$HOME/Steam}
+          steamdir=~/steamcmd
           # this is relative to the action
           contentroot=$(pwd)/$rootPath
 

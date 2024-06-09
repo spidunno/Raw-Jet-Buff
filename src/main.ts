@@ -1,4 +1,4 @@
-import { RAW_JET } from "./util";
+import { RAW_JET, DEFAULT_STRENGTH } from "./util";
 
 globalThis.update = () => {
 	const players = tm.players.CurrentPlayers();
@@ -12,7 +12,9 @@ globalThis.update = () => {
 			for (const block of blocks) {
 				const blockName = block.GetName();
 
-				if (blockName === RAW_JET)
+				if (blockName === RAW_JET) {
+					block.SetJetPower(DEFAULT_STRENGTH);
+				}
 			}
 		}
 	}

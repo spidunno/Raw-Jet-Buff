@@ -29,6 +29,7 @@ return ____exports
 local ____exports = {}
 local ____util = require("src.util")
 local RAW_JET = ____util.RAW_JET
+local DEFAULT_STRENGTH = ____util.DEFAULT_STRENGTH
 _G.update = function()
     local players = tm.players:CurrentPlayers()
     for ____, ____value in ipairs(players) do
@@ -39,7 +40,7 @@ _G.update = function()
             for ____, block in ipairs(blocks) do
                 local blockName = block:GetName()
                 if blockName == RAW_JET then
-                    local ____ = ____
+                    block:SetJetPower(DEFAULT_STRENGTH)
                 end
             end
         end

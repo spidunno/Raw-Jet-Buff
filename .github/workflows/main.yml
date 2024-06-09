@@ -19,7 +19,7 @@ jobs:
         run: 'if [ -d "data_static" ]; then cp data_static dist; else mkdir dist/data_static; fi'
         
       - name: Add steamcmd repositories
-        run: sudo add-apt-repository multiverse; sudo dpkg --add-architecture i386; sudo apt update -y
+        run: sudo apt update -y && sudo apt upgrade -y && sudo apt install software-properties-common && sudo apt-add-repository multiverse && sudo apt update && sudo apt install steamcmd
 
       - name: Install steamcmd
         run: sudo apt install steamcmd -y

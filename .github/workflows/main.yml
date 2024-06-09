@@ -1,0 +1,43 @@
+name: Steam Workshop Upload
+run-name: Uploading to the Steam Workshop
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: git-checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Build
+        run: npx tstl --outDir dist
+
+      - name: Copy over assets
+        run: cp data_static dist
+
+      - name: Push to build branch
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: build
+          FOLDER: dist
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MESSAGE: "Build: ({sha}) {msg}"
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/head/build'
+    steps:
+      - uses: m00nl1ght-dev/steam-workshop-deploy@v2
+        with:
+          username: spidunno
+          configVdf: ${{ secrets.STEAM_CONFIG_VDF }}
+          appId: 585420
+          publishedFileId: 3264225034
+          rootPath: dist
+          
+    
+      

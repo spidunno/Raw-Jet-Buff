@@ -16,7 +16,7 @@ jobs:
         run: npx tstl --outDir dist
 
       - name: Copy over assets
-        run: cp data_static dist
+        run: '[ -d "data_static" ] && cp data_static dist'
 
       - name: Push to build branch
         uses: s0/git-publish-subdir-action@develop

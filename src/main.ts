@@ -1,7 +1,9 @@
 import { Element, Input, Label, Layout } from "tm-ui-lib";
 import { RAW_JET, DEFAULT_STRENGTH, TOGGLE_KEY } from "./util";
 
-let strength = DEFAULT_STRENGTH;
+let strengthFile = tm.os.ReadAllText_Dynamic('config.txt');
+
+let strength = strengthFile !== '' ? parseFloat(strengthFile) === parseFloat(strengthFile) ? parseFloat(strengthFile) : DEFAULT_STRENGTH : DEFAULT_STRENGTH;
 
 let visible = true;
 
@@ -34,6 +36,7 @@ const elements: Element[] = [
 		if (value !== value) return;
 
 		strength = value;
+		tm.os.WriteAllText_Dynamic('config.txt', strength.toString());
 		(elements[1] as Input).content = strength.toString()
 	}),
 	new Label('--------------------------------------------------'),

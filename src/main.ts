@@ -51,4 +51,8 @@ globalThis.VisibilityToggleFunction = (playerId: PlayerID) => {
 		layout.items = [];
 	}
 }
-tm.input.RegisterFunctionToKeyDownCallback(0, 'VisibilityToggleFunction', TOGGLE_KEY);
+
+tm.players.onPlayerJoined.add((player) => {
+	if (player.playerId !== 0) return;
+	tm.input.RegisterFunctionToKeyDownCallback(0, 'VisibilityToggleFunction', TOGGLE_KEY);
+});

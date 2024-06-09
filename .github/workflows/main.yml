@@ -27,6 +27,8 @@ jobs:
           
         env:
           steam_username: spidunno
+          steam_password: ''
+          steam_totp: ''
           configVdf: ${{ secrets.STEAM_CONFIG_VDF }}
           appId: 585420
           itemId: 3264225034

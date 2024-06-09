@@ -1,4 +1,4 @@
-export const RAW_JET = 'PFB_JetEngine [Server]';
+export const RAW_JET = 'PFB_JetEngine';
 
 export const DEFAULT_STRENGTH = 1500;
 

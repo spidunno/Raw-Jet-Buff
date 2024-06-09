@@ -17,7 +17,7 @@ globalThis.update = () => {
 			for (const block of blocks) {
 				const blockName = block.GetName();
 
-				if (blockName === RAW_JET) {
+				if (blockName.includes(RAW_JET)) {
 					block.SetJetPower(strength);
 				}
 			}
@@ -26,7 +26,7 @@ globalThis.update = () => {
 }
 
 const elements: Element[] = [
-	new Label('RAW Jet strength: '),
+	new Label('RAW Jet strength (default 1500): '),
 	new Input('1500', (data) => {
 		const value = parseFloat(data.value);
 

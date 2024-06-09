@@ -1,7 +1,7 @@
 #!/bin/bash
-set -euo pipefail
+#set -euo pipefail
 IFS=$'\n\t'
-set +u
+#set +u
 
 # steamdir=${STEAM_HOME:-$HOME/Steam}
 steamdir=~/steamcmd

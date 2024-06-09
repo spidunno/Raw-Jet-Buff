@@ -19,7 +19,7 @@ globalThis.update = () => {
 			for (const block of blocks) {
 				const blockName = block.GetName();
 
-				if (blockName.includes(RAW_JET)) {
+				if (blockName.replaceAll(' [Server]', ' ') === RAW_JET) {
 					block.SetJetPower(strength);
 				}
 			}

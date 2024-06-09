@@ -37,7 +37,7 @@ const elements: Element[] = [
 		(elements[1] as Input).content = strength.toString()
 	}),
 	new Label('--------------------------------------------------'),
-	new Label(` [Press ${TOGGLE_KEY.toUpperCase()} to toggle visibility]`),
+	new Label(`   [Press ${TOGGLE_KEY.toUpperCase()} to toggle visibility]`),
 ];
 
 const layout = new Layout(elements, [0]);

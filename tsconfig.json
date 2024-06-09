@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TypeScriptToLua/TypeScriptToLua/master/tsconfig-schema.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "moduleResolution": "Node",
+    "types": ["trailmakers"],
+    "strict": true,
+  },
+  "tstl": {
+		"buildMode": "default",
+    "luaTarget": "5.2",
+
+		"luaBundle": "./main.lua",
+		"luaBundleEntry": "./src/main.ts",
+		
+    "luaLibImport": "require-minimal",
+		"noImplicitSelf": true,
+		"noHeader": true
+  },
+}

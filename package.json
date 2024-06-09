@@ -1,0 +1,19 @@
+{
+  "name": "my-trailmakers-project",
+  "module": "src/main.ts",
+  "type": "module",
+  "devDependencies": {
+    "trailmakers": "^1.0.5",
+    "typescript-to-lua": "^1.25.1"
+  },
+  "scripts": {
+    "build": "tstl",
+    "watch": "tstl --watch"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "tm-ui-lib": "^0.0.3"
+  }
+}
